@@ -2,7 +2,7 @@
 Summary:	A Haskell binding to the c2hs graphics library
 Name:		ghc-%{pkgname}
 Version:	0.16.4
-Release:	0.1
+Release:	1
 License:	BSD
 Group:		Development/Languages
 Source0:	http://hackage.haskell.org/packages/archive/%{pkgname}/%{version}/%{pkgname}-%{version}.tar.gz
