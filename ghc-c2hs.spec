@@ -1,19 +1,17 @@
 %define		pkgname	c2hs
 Summary:	A Haskell binding to the c2hs graphics library
 Name:		ghc-%{pkgname}
-Version:	0.16.4
+Version:	0.28.6
 Release:	1
 License:	BSD
 Group:		Development/Languages
 Source0:	http://hackage.haskell.org/packages/archive/%{pkgname}/%{version}/%{pkgname}-%{version}.tar.gz
-# Source0-md5:	5650ffd0cc901be8ab874c58c83f253e
+# Source0-md5:	fdb24350973ecdc2376576241707ff74
 URL:		http://hackage.haskell.org/package/c2hs/
 BuildRequires:	ghc >= 6.12.3
-BuildRequires:	ghc-language-c < 0.4
 BuildRequires:	ghc-language-c >= 0.3.1.1
 BuildRequires:	rpmbuild(macros) >= 1.608
 %requires_eq	ghc
-Requires:	ghc-language-c < 0.4
 Requires:	ghc-language-c >= 0.3.1.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -40,9 +38,12 @@ rm -rf $RPM_BUILD_ROOT
 
 runhaskell Setup.hs copy --destdir=$RPM_BUILD_ROOT
 
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}-%{version}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS ChangeLog README
 %attr(755,root,root) %{_bindir}/c2hs
