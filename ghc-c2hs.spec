@@ -1,5 +1,6 @@
 %define		pkgname	c2hs
-Summary:	A Haskell binding to the c2hs graphics library
+Summary:	C->Haskell FFI tool that gives some cross-language type safety
+Summary(pl.UTF-8):	Narzędzie FFI C->Haskell dające pewne bezpieczeństwo typów między językami
 Name:		ghc-%{pkgname}
 Version:	0.28.8
 Release:	2
@@ -27,7 +28,18 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_enable_debug_packages	0
 
 %description
-A Haskell binding to the c2hs graphics library.
+C->Haskell assists in the development of Haskell bindings to C
+libraries. It extracts interface information from C header files and
+generates Haskell code with foreign imports and marshaling. Unlike
+writing foreign imports by hand (or using hsc2hs), this ensures that C
+functions are imported with the correct Haskell types.
+
+%description -l pl.UTF-8
+C->Haskell pomaga przy tworzeniu wiązań Haskella do bibliotek C.
+Wydobywa informacje o interfejsach z plików nagłówkowych C i generuje
+kod w Haskellu z obcymi importami i szeregowaniem. W przeciwieństwie
+do ręcznego pisania importów (albo używania hsc2hs) zapewnia, że
+funkcje C są importowane z poprawnymi typami Haskella.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
